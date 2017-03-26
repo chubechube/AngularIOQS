@@ -4,6 +4,7 @@
     // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
     "version": "0.2.0",
     "configurations": [
+        
         {
             "type": "node",
             "request": "launch",
@@ -13,25 +14,13 @@
                 "runtimeExecutable": "npm.cmd"
             },
             "runtimeArgs": [
-                "run",
-                "build:watch"
-            ],
-            "port": 5858
-        },
-        {
-            "type": "node",
-            "request": "launch",
-            "name": "Avvia programma",
-            "program": "${workspaceRoot}/src/main.js",
-            "outFiles": []
-        },
-        {
-            "type": "node",
-            "request": "attach",
-            "name": "Collega a processo",
-            "address": "localhost",
-            "port": 5858,
-            "outFiles": []
+            
+            "start"
+                
+            ]
+          
         }
+        
+       
     ]
 }
