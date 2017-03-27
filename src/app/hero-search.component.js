@@ -50,8 +50,8 @@ var HeroSearchComponent = (function () {
     HeroSearchComponent = __decorate([
         core_1.Component({
             selector: 'hero-search',
-            templateUrl: './hero-search.component.html',
-            styleUrls: ['./hero-search.component.css'],
+            templateUrl: 'app/hero-search.component.html',
+            styleUrls: ['app/hero-search.component.css'],
             providers: [hero_search_service_1.HeroSearchService]
         }), 
         __metadata('design:paramtypes', [hero_search_service_1.HeroSearchService, router_1.Router])
