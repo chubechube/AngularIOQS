@@ -22,6 +22,10 @@ var heroes_component_1 = require('./heroes.component');
 var hero_detail_component_1 = require('./hero-detail.component');
 var hero_service_1 = require('./hero.service');
 var hero_search_component_1 = require('./hero-search.component');
+var users_component_1 = require('./users/users.component');
+var user_service_1 = require('./users/user.service');
+var user_search_component_1 = require('./users/user-search.component');
+//import { SelectCharactherClass } from './Spells/select-charachter-class'
 var AppModule = (function () {
     function AppModule() {
     }
@@ -31,7 +35,7 @@ var AppModule = (function () {
                 platform_browser_1.BrowserModule,
                 forms_1.FormsModule,
                 http_1.HttpModule,
-                angular_in_memory_web_api_1.InMemoryWebApiModule.forRoot(in_memory_data_service_1.InMemoryDataService),
+                angular_in_memory_web_api_1.InMemoryWebApiModule.forRoot(in_memory_data_service_1.InMemoryDataService, { passThruUnknownUrl: true }),
                 app_routing_module_1.AppRoutingModule
             ],
             declarations: [
@@ -39,9 +43,11 @@ var AppModule = (function () {
                 dashboard_component_1.DashboardComponent,
                 hero_detail_component_1.HeroDetailComponent,
                 heroes_component_1.HeroesComponent,
-                hero_search_component_1.HeroSearchComponent
+                hero_search_component_1.HeroSearchComponent,
+                users_component_1.UsersComponent,
+                user_search_component_1.UserSearchComponent,
             ],
-            providers: [hero_service_1.HeroService],
+            providers: [hero_service_1.HeroService, user_service_1.UserService],
             bootstrap: [app_component_1.AppComponent]
         }), 
         __metadata('design:paramtypes', [])

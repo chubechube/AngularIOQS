@@ -1,0 +1,9 @@
+<form>
+  <md-select placeholder="Character Class" [(ngModel)]="selectedValue" name="classUser">
+    <md-option *ngFor="let classUser of classUsers" [value]="classUsers.value">
+      {{classUsers.viewValue}}
+    </md-option>
+  </md-select>
+
+  <p> Selected value: {{selectedValue}} </p>
+</form>

@@ -10,15 +10,24 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 };
 var core_1 = require('@angular/core');
 var hero_service_1 = require('./hero.service');
+var user_service_1 = require('./users/user.service');
 var DashboardComponent = (function () {
-    function DashboardComponent(heroService) {
+    function DashboardComponent(heroService, userService) {
         this.heroService = heroService;
+        this.userService = userService;
         this.heroes = [];
+        this.users = [];
     }
     DashboardComponent.prototype.ngOnInit = function () {
         var _this = this;
         this.heroService.getHeroes()
-            .then(function (heroes) { return _this.heroes = heroes.slice(1, 5); });
+            .then(function (heroes) { return _this.heroes = heroes.slice(0, 4); });
+        //this.userService.getUsers().then(users => this.users = users.slice(0,4));
+        this.userService.getAll()
+            .subscribe(function (p) {
+            console.log("USER DASH ", p);
+            _this.users = p;
+        });
     };
     DashboardComponent = __decorate([
         core_1.Component({
@@ -26,7 +35,7 @@ var DashboardComponent = (function () {
             templateUrl: 'app/dashboard.component.html',
             styleUrls: ['app/dashboard.component.css']
         }), 
-        __metadata('design:paramtypes', [hero_service_1.HeroService])
+        __metadata('design:paramtypes', [hero_service_1.HeroService, user_service_1.UserService])
     ], DashboardComponent);
     return DashboardComponent;
 }());

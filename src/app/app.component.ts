@@ -15,6 +15,7 @@ export class DashboardComponent { }
      <a routerLink="/heroes">Heroes</a>
    </nav>
    <router-outlet></router-outlet>
+   <a href="http:\\127.0.0.1:32769/users">Visit W3Schools</a>
  `
 
 })
