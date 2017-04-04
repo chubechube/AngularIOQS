@@ -13,9 +13,10 @@ export class DashboardComponent { }
    <nav>
      <a routerLink="/dashboard">Dashboard</a>
      <a routerLink="/heroes">Heroes</a>
+     <a routerLink="/spells">Spells</a>
    </nav>
    <router-outlet></router-outlet>
-   <a href="http:\\127.0.0.1:32769/users">Visit W3Schools</a>
+  
  `
 
 })

@@ -11,16 +11,11 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 var core_1 = require('@angular/core');
 var SelectCharactherClass = (function () {
     function SelectCharactherClass() {
-        this.classUsers = [
-            { value: 'cleric', viewValue: 'cleric' },
-            { value: 'sor', viewValue: 'sor' },
-            { value: 'wiz', viewValue: 'wiz' }
-        ];
     }
     SelectCharactherClass = __decorate([
         core_1.Component({
-            selector: 'select-charachter-class',
-            templateUrl: 'app/Spells/select-charachter-class.html',
+            selector: 'demo-dropdown-basic',
+            templateUrl: 'app/Spells/select-charachter-class.html'
         }), 
         __metadata('design:paramtypes', [])
     ], SelectCharactherClass);

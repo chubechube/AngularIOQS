@@ -13,12 +13,13 @@ var router_1 = require('@angular/router');
 var dashboard_component_1 = require('./dashboard.component');
 var heroes_component_1 = require('./heroes.component');
 var hero_detail_component_1 = require('./hero-detail.component');
-//import { SelectCharactherClass } from './Spells/select-charachter-class'
+var select_charachter_class_1 = require('./Spells/select-charachter-class');
 var routes = [
     { path: '', redirectTo: '/dashboard', pathMatch: 'full' },
     { path: 'dashboard', component: dashboard_component_1.DashboardComponent },
     { path: 'detail/:id', component: hero_detail_component_1.HeroDetailComponent },
     { path: 'heroes', component: heroes_component_1.HeroesComponent },
+    { path: 'spells', component: select_charachter_class_1.SelectCharactherClass }
 ];
 var AppRoutingModule = (function () {
     function AppRoutingModule() {

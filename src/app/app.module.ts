@@ -1,7 +1,9 @@
 import { NgModule }      from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import {FormsModule} from '@angular/forms';
 import { HttpModule }    from '@angular/http';
+import {FormsModule }    from '@angular/forms';
+import { BsDropdownModule } from 'ng2-bootstrap';
+
 
 
 
@@ -21,7 +23,7 @@ import { HeroSearchComponent }  from './hero-search.component';
 import { UsersComponent }       from './users/users.component';
 import { UserService}           from './users/user.service';
 import { UserSearchComponent }  from './users/user-search.component';
-//import { SelectCharactherClass } from './Spells/select-charachter-class'
+import { SelectCharactherClass } from './Spells/select-charachter-class'
 
 
 @NgModule({
@@ -30,6 +32,7 @@ import { UserSearchComponent }  from './users/user-search.component';
     FormsModule,
     HttpModule,
     InMemoryWebApiModule.forRoot(InMemoryDataService, {passThruUnknownUrl: true}),
+    BsDropdownModule.forRoot(),
     AppRoutingModule
   ],
   declarations: [
@@ -40,7 +43,7 @@ import { UserSearchComponent }  from './users/user-search.component';
     HeroSearchComponent,
     UsersComponent,
     UserSearchComponent,
-  //  SelectCharactherClass
+    SelectCharactherClass
   ],
   providers: [ HeroService ,UserService],
   bootstrap: [ AppComponent ]
