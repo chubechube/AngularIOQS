@@ -20,7 +20,6 @@ export class UserService {
     let user$ = this.http
       .get(`${this.baseUrl}/users`, {headers: this.getHeaders()})
       .map(mapUser);
-      console.log('USER$ ',user$);
       return user$;
   }
 
@@ -107,10 +106,4 @@ function toUser(r:any): User{
   return user;
 }
 
-// to avoid breaking the rest of our app
-// I extract the id from the person url
-function extractId(userData:any){
- let extractedId = userData.url.replace('http://127.0.0.1:32778/users','').replace('/','');
- return parseInt(extractedId);
-}
 

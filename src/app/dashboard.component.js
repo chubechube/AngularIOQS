@@ -9,8 +9,8 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 var core_1 = require('@angular/core');
-var hero_service_1 = require('./hero.service');
-var user_service_1 = require('./users/user.service');
+var hero_service_1 = require('./Heroes/hero.service');
+var user_service_1 = require('./Users/user.service');
 var DashboardComponent = (function () {
     function DashboardComponent(heroService, userService) {
         this.heroService = heroService;
@@ -25,7 +25,6 @@ var DashboardComponent = (function () {
         //this.userService.getUsers().then(users => this.users = users.slice(0,4));
         this.userService.getAll()
             .subscribe(function (p) {
-            console.log("USER DASH ", p);
             _this.users = p;
         });
     };

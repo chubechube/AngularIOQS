@@ -1,9 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 
-import { Hero } from './hero';
-import { User } from './users/user'
-import { HeroService } from './hero.service';
-import { UserService } from './users/user.service';
+import { Hero } from './Heroes/hero';
+import { User } from './Users/user'
+import { HeroService } from './Heroes/hero.service';
+import { UserService } from './Users/user.service';
 
 @Component({
   selector: 'my-dashboard',
@@ -25,7 +25,6 @@ export class DashboardComponent implements OnInit {
     this.userService.getAll()
       .subscribe(
         p => {
-          console.log("USER DASH ",p);
           this.users = p
         })
   }

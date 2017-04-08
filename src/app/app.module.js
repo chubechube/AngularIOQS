@@ -12,21 +12,22 @@ var core_1 = require('@angular/core');
 var platform_browser_1 = require('@angular/platform-browser');
 var http_1 = require('@angular/http');
 var forms_1 = require('@angular/forms');
-var ng2_bootstrap_1 = require('ng2-bootstrap');
+//import { BsDropdownModule } from 'ng2-bootstrap';
+var ng_lightning_1 = require('ng-lightning/ng-lightning');
 var app_routing_module_1 = require('./app-routing.module');
 // Imports for loading & configuring the in-memory web api
 var angular_in_memory_web_api_1 = require('angular-in-memory-web-api');
-var in_memory_data_service_1 = require('./in-memory-data.service');
+var in_memory_data_service_1 = require('./Services/in-memory-data.service');
 var app_component_1 = require('./app.component');
 var dashboard_component_1 = require('./dashboard.component');
-var heroes_component_1 = require('./heroes.component');
-var hero_detail_component_1 = require('./hero-detail.component');
-var hero_service_1 = require('./hero.service');
-var hero_search_component_1 = require('./hero-search.component');
-var users_component_1 = require('./users/users.component');
-var user_service_1 = require('./users/user.service');
-var user_search_component_1 = require('./users/user-search.component');
-var select_charachter_class_1 = require('./Spells/select-charachter-class');
+var heroes_component_1 = require('./Heroes/heroes.component');
+var hero_detail_component_1 = require('./Heroes/hero-detail.component');
+var hero_service_1 = require('./Heroes/hero.service');
+var hero_search_component_1 = require('./Heroes/hero-search.component');
+var users_component_1 = require('./Users/users.component');
+var user_service_1 = require('./Users/user.service');
+var user_search_component_1 = require('./Users/user-search.component');
+var select_charachter_classNG_1 = require('./Spells/select-charachter-classNG');
 var AppModule = (function () {
     function AppModule() {
     }
@@ -37,7 +38,8 @@ var AppModule = (function () {
                 forms_1.FormsModule,
                 http_1.HttpModule,
                 angular_in_memory_web_api_1.InMemoryWebApiModule.forRoot(in_memory_data_service_1.InMemoryDataService, { passThruUnknownUrl: true }),
-                ng2_bootstrap_1.BsDropdownModule.forRoot(),
+                //BsDropdownModule.forRoot(),
+                ng_lightning_1.NglModule.forRoot(),
                 app_routing_module_1.AppRoutingModule
             ],
             declarations: [
@@ -48,7 +50,7 @@ var AppModule = (function () {
                 hero_search_component_1.HeroSearchComponent,
                 users_component_1.UsersComponent,
                 user_search_component_1.UserSearchComponent,
-                select_charachter_class_1.SelectCharactherClass
+                select_charachter_classNG_1.SelectCharactherClassNG
             ],
             providers: [hero_service_1.HeroService, user_service_1.UserService],
             bootstrap: [app_component_1.AppComponent]

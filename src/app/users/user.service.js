@@ -22,7 +22,6 @@ var UserService = (function () {
         var user$ = this.http
             .get(this.baseUrl + "/users", { headers: this.getHeaders() })
             .map(mapUser);
-        console.log('USER$ ', user$);
         return user$;
     };
     UserService.prototype.getHeaders = function () {
@@ -89,11 +88,5 @@ function toUser(r) {
         userEmail: r.userEmail
     });
     return user;
-}
-// to avoid breaking the rest of our app
-// I extract the id from the person url
-function extractId(userData) {
-    var extractedId = userData.url.replace('http://127.0.0.1:32778/users', '').replace('/', '');
-    return parseInt(extractedId);
 }
 //# sourceMappingURL=user.service.js.map

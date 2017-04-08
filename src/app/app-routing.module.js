@@ -11,15 +11,15 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 var core_1 = require('@angular/core');
 var router_1 = require('@angular/router');
 var dashboard_component_1 = require('./dashboard.component');
-var heroes_component_1 = require('./heroes.component');
-var hero_detail_component_1 = require('./hero-detail.component');
-var select_charachter_class_1 = require('./Spells/select-charachter-class');
+var heroes_component_1 = require('./Heroes/heroes.component');
+var hero_detail_component_1 = require('./Heroes/hero-detail.component');
+var select_charachter_classNG_1 = require('./Spells/select-charachter-classNG');
 var routes = [
     { path: '', redirectTo: '/dashboard', pathMatch: 'full' },
     { path: 'dashboard', component: dashboard_component_1.DashboardComponent },
     { path: 'detail/:id', component: hero_detail_component_1.HeroDetailComponent },
     { path: 'heroes', component: heroes_component_1.HeroesComponent },
-    { path: 'spells', component: select_charachter_class_1.SelectCharactherClass }
+    { path: 'spells', component: select_charachter_classNG_1.SelectCharactherClassNG }
 ];
 var AppRoutingModule = (function () {
     function AppRoutingModule() {
