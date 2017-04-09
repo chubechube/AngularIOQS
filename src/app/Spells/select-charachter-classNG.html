@@ -6,16 +6,26 @@
   <div class="slds-dropdown slds-dropdown--left">
     <ul class="dropdown__list" role="menu">
       <li class="slds-dropdown__item" *ngFor="let item of items;">
-        <a role="menuitem" nglDropdownItem (click)="selected = item.value; open = false;">
+        <a role="menuitem" nglDropdownItem (click)="selected = item.value; open = false; onVoted($event) ">
           <p class="slds-truncate">{{item.name}}</p>
-          <ngl-icon [icon]="item.icon" type="default" size="x-small"></ngl-icon>
+           
         </a>
       </li>
     </ul>
   </div>
 </span>
 
-<button type="button" nglButton="neutral" (click)="onToggle($event)">Open</button>
-<button type="button" nglButton="neutral" style="margin-left: 0px;" (click)="open = !open">Toggle</button>
+<button type="button" nglButton="neutral" (click)="onToggle($event);onClickOpen($event)"  >Open</button> 
+<button type="button" nglButton="neutral" style="margin-left: 0px;" (click)="open = !open;onClickToggle($event)">Toggle</button>
 
 <div *ngIf="selected" class="slds-m-top--large">You selected: <b>{{selected}}</b></div>
+ <h3>You Selected : {{counter}} number of times</h3>
+ <h3>You used the open button : {{buttonOpen}} number of times</h3>
+ <h3>You used the toggle button : {{buttonToggle}} number of times</h3>
+
+ <div class="flexDemoContainer">
+  <div fxLayout="row" fxLayout.xs="column" fxLayout.sm="column" fxFlex>
+    <div fxFlex> I'm above on mobile, and left on larger devices. </div>
+    <div fxFlex> I'm below on mobile, and right on larger devices. </div>
+  </div>
+</div>

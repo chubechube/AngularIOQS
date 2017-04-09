@@ -12,6 +12,7 @@ var core_1 = require('@angular/core');
 var platform_browser_1 = require('@angular/platform-browser');
 var http_1 = require('@angular/http');
 var forms_1 = require('@angular/forms');
+var flex_layout_1 = require('@angular/flex-layout');
 //import { BsDropdownModule } from 'ng2-bootstrap';
 var ng_lightning_1 = require('ng-lightning/ng-lightning');
 var app_routing_module_1 = require('./app-routing.module');
@@ -38,6 +39,7 @@ var AppModule = (function () {
                 forms_1.FormsModule,
                 http_1.HttpModule,
                 angular_in_memory_web_api_1.InMemoryWebApiModule.forRoot(in_memory_data_service_1.InMemoryDataService, { passThruUnknownUrl: true }),
+                flex_layout_1.FlexLayoutModule,
                 //BsDropdownModule.forRoot(),
                 ng_lightning_1.NglModule.forRoot(),
                 app_routing_module_1.AppRoutingModule

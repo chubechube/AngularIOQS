@@ -11,6 +11,9 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 var core_1 = require('@angular/core');
 var SelectCharactherClassNG = (function () {
     function SelectCharactherClassNG() {
+        this.counter = 0;
+        this.buttonToggle = 0;
+        this.buttonOpen = 0;
         this.items = [
             { value: 'cleric', name: 'Cleric' },
             { value: 'wiz', name: 'Wizard' },
@@ -21,10 +24,20 @@ var SelectCharactherClassNG = (function () {
         $event.stopPropagation();
         this.open = true;
     };
+    SelectCharactherClassNG.prototype.onVoted = function ($event) {
+        this.counter++;
+    };
+    SelectCharactherClassNG.prototype.onClickOpen = function ($event) {
+        this.buttonOpen++;
+    };
+    SelectCharactherClassNG.prototype.onClickToggle = function ($event) {
+        this.buttonToggle++;
+    };
     SelectCharactherClassNG = __decorate([
         core_1.Component({
             selector: 'demo-dropdown-basic',
             templateUrl: 'app/Spells/select-charachter-classNG.html',
+            styleUrls: ['app/Spells/select-charachter-classNG.css']
         }), 
         __metadata('design:paramtypes', [])
     ], SelectCharactherClassNG);
