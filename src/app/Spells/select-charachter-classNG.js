@@ -9,11 +9,15 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 var core_1 = require('@angular/core');
+var SpellsService_1 = require('./SpellsService');
 var SelectCharactherClassNG = (function () {
-    function SelectCharactherClassNG() {
+    function SelectCharactherClassNG(spellsService) {
+        this.spellsService = spellsService;
+        this.mode = 'Observable';
         this.counter = 0;
         this.buttonToggle = 0;
         this.buttonOpen = 0;
+        this.apiSpells = " Vuoto ";
         this.items = [
             { value: 'cleric', name: 'Cleric' },
             { value: 'wiz', name: 'Wizard' },
@@ -33,13 +37,20 @@ var SelectCharactherClassNG = (function () {
     SelectCharactherClassNG.prototype.onClickToggle = function ($event) {
         this.buttonToggle++;
     };
+    SelectCharactherClassNG.prototype.callSpell = function ($event) {
+    };
+    SelectCharactherClassNG.prototype.getSpells = function () {
+        var _this = this;
+        this.spellsService.getSpellSub()
+            .subscribe(function (spells) { return _this.spells = spells; }, function (error) { return _this.errorMessage = error; });
+    };
     SelectCharactherClassNG = __decorate([
         core_1.Component({
             selector: 'demo-dropdown-basic',
             templateUrl: 'app/Spells/select-charachter-classNG.html',
             styleUrls: ['app/Spells/select-charachter-classNG.css']
         }), 
-        __metadata('design:paramtypes', [])
+        __metadata('design:paramtypes', [SpellsService_1.SpellsService])
     ], SelectCharactherClassNG);
     return SelectCharactherClassNG;
 }());

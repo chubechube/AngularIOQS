@@ -48,7 +48,7 @@ import { SelectCharactherClassNG } from './Spells/select-charachter-classNG';
     UserSearchComponent,
     SelectCharactherClassNG
   ],
-  providers: [ HeroService ,UserService],
+  providers: [ HeroService ,UserService,SpellsService],
   bootstrap: [ AppComponent ]
 })
 export class AppModule { }

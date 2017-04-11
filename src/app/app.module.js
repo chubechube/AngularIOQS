@@ -28,6 +28,7 @@ var hero_search_component_1 = require('./Heroes/hero-search.component');
 var users_component_1 = require('./Users/users.component');
 var user_service_1 = require('./Users/user.service');
 var user_search_component_1 = require('./Users/user-search.component');
+var SpellsService_1 = require('./Spells/SpellsService');
 var select_charachter_classNG_1 = require('./Spells/select-charachter-classNG');
 var AppModule = (function () {
     function AppModule() {
@@ -54,7 +55,7 @@ var AppModule = (function () {
                 user_search_component_1.UserSearchComponent,
                 select_charachter_classNG_1.SelectCharactherClassNG
             ],
-            providers: [hero_service_1.HeroService, user_service_1.UserService],
+            providers: [hero_service_1.HeroService, user_service_1.UserService, SpellsService_1.SpellsService],
             bootstrap: [app_component_1.AppComponent]
         }), 
         __metadata('design:paramtypes', [])

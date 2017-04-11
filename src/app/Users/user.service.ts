@@ -11,7 +11,7 @@ import { User } from './user';
 export class UserService {
     private usersUrl = 'api/users';  // URL to web api
     private headers = new Headers({'Content-Type': 'application/json'});
-    private baseUrl: string = 'http://127.0.0.1:32768';
+    private baseUrl: string = 'http://192.168.1.8:32769';
 
    constructor(private http: Http) { }
 

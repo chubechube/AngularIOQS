@@ -16,7 +16,7 @@
 </span>
 
 <button type="button" nglButton="neutral" (click)="onToggle($event);onClickOpen($event)"  >Open</button> 
-<button type="button" nglButton="neutral" style="margin-left: 0px;" (click)="open = !open;onClickToggle($event)">Toggle</button>
+<button type="button" nglButton="neutral" style="margin-left: 0px;" (click)="open = !open;onClickToggle($event);getSpells()">Toggle</button>
 
 <div *ngIf="selected" class="slds-m-top--large">You selected: <b>{{selected}}</b></div>
  <h3>You Selected : {{counter}} number of times</h3>
@@ -29,3 +29,8 @@
     <div fxFlex> I'm below on mobile, and right on larger devices. </div>
   </div>
 </div>
+
+<h3>Heroes:</h3>
+<ul>
+  <li *ngFor="let spell of spells">{{spell.name}}</li>
+</ul>

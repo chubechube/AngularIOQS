@@ -2,6 +2,7 @@ import { Injectable }             from '@angular/core';
 import { Headers,Response, Http } from '@angular/http';
 import { Observable }             from 'rxjs/Rx';
 
+import 'rxjs/add/operator/catch';
 import 'rxjs/add/operator/toPromise';
 
 import { Spell } from './spell';
@@ -9,21 +10,37 @@ import { Spell } from './spell';
 
 @Injectable()
 export class SpellsService {
-    private usersUrl = 'api/spell';  // URL to web api
+    private spellsUrl = 'api/spell';  // URL to web api
     private headers = new Headers({'Content-Type': 'application/json'});
-    private baseUrl: string = 'http://127.0.0.1:32769';
+    private baseUrl: string = 'http://192.168.1.8:32769';
 
    constructor(private http: Http) { }
 
-   getAll(): Observable<Spell[]>{
-    
-    let spell$ = this.http
-      .get(`${this.baseUrl}/users`, {headers: this.getHeaders()})
-      .map(mapSpell);
-     
-      return spell$;
+  getSpellSub(): Observable<Spell[]> {
+    const url = `${this.baseUrl}/spells/cleric`;
+    return this.http.get(url)
+                    .map(res => res.json())
+                    .catch(this.handleError);
+  }
+  private extractData(res: Response) {
+    let body = res.json();
+    return body.data || { };
+  }
+  private handleError (error: Response | any) {
+    // In a real world app, you might use a remote logging infrastructure
+    let errMsg: string;
+    if (error instanceof Response) {
+      const body = error.json() || '';
+      const err = body.error || JSON.stringify(body);
+      errMsg = `${error.status} - ${error.statusText || ''} ${err}`;
+    } else {
+      errMsg = error.message ? error.message : error.toString();
+    }
+    console.error(errMsg);
+    return Observable.throw(errMsg);
   }
 
+ 
 private getHeaders(){
     let headers = new Headers();
     headers.append('Accept', 'application/json');
@@ -43,7 +60,7 @@ function toSpell(r:any): Spell{
   let spell = <Spell>({
     id            : r.id,
     name          : r.name,
-    level         : r.sor,
+    level         : r.cleric,
     
   });
   

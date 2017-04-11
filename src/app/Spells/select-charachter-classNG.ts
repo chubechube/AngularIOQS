@@ -1,4 +1,6 @@
-import {Component ,  EventEmitter, Input, Output} from '@angular/core';
+import { Component ,  EventEmitter, Input, Output} from '@angular/core';
+import { SpellsService } from './SpellsService';
+import { Spell         } from './Spell';
 
 @Component({
   selector: 'demo-dropdown-basic',
@@ -6,11 +8,18 @@ import {Component ,  EventEmitter, Input, Output} from '@angular/core';
    styleUrls: [ 'app/Spells/select-charachter-classNG.css' ]
 })
 export class SelectCharactherClassNG  {
+    errorMessage: string;
+    spells: Spell[];
+    mode = 'Observable';
+  constructor(
+    private spellsService: SpellsService) { }
+
   selected: string;
   open: boolean;
   counter = 0;
   buttonToggle = 0;
   buttonOpen = 0;
+  apiSpells =" Vuoto ";
 
   items = [
     { value: 'cleric' , name: 'Cleric'},
@@ -33,6 +42,20 @@ export class SelectCharactherClassNG  {
 
   onClickToggle($event: Event) {
     this.buttonToggle++;
+    
+    
   }
+
+  callSpell($event: Event){
+    
+  }
+
+  getSpells() {
+    this.spellsService.getSpellSub()
+                     .subscribe(
+                       spells => this.spells = spells,
+                       error =>  this.errorMessage = <any>error);
+  }
+
 }
 
