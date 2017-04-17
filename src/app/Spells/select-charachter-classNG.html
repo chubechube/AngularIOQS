@@ -1,32 +1,24 @@
-	<div class = "flexContainer"  >
-		<div class="firstRow" fxFlex = "10%" fxFlex.xs ="30px">
+	 <div class="containerX">
+ <div fxLayout="row" fxLayout.xs="row" fxLayout.sm="row" fxFlex class="coloredContainerX box" >
+		<div fxFlex  flex class="firstRow">
 
-
-           <!--   <span nglDropdown [(open)]="open">
-        <button class="slds-button slds-button--neutral" nglDropdownTrigger>
-          <span class="slds-truncate">Select an item</span>
-          <ngl-icon icon="down" type="default" size="x-small"></ngl-icon>
-        </button>
-        <div class="slds-dropdown slds-dropdown--left">
-          <ul class="dropdown__list" role="menu">
-            <li class="slds-dropdown__item" *ngFor="let item of items;">
-              <a role="menuitem" nglDropdownItem (click)="selected = item.value; open = false; onVoted($event) ">
-                <p class="slds-truncate">{{item.name}}</p>
-                
-              </a>
-            </li>
-          </ul>
-        </div>
-      </span>-->
-
-      <!--a class="classButton" (click)="getSpells()" >Cleric</a-->
-      <!--<md-button  type="button" nglButton="neutral" style="margin-left: 0px;" (click)="open = !open;onClickToggle($event);getSpells()" >Cleric</md-button>-->
+      <div fxLayout="column" class="buttonContainer">
+      <button flex class="classButton"  id="1" (click)="getSpells($event)" >Level 1</button>
+      <button flex class="classButton"  id="2" (click)="getSpells($event)" >Level 2</button>
+      <button flex class="classButton"  id="3" (click)="getSpells($event)" >Level 3</button>
+      <button flex class="classButton"  id="4" (click)="getSpells($event)" >Level 4</button>
+      <button flex class="classButton"  id="5" (click)="getSpells($event)" >Level 5</button>
+      <button flex class="classButton"  id="6" (click)="getSpells($event)" >Level 6</button>
+      <button flex class="classButton"  id="7" (click)="getSpells($event)" >Level 7</button>
+      <button flex class="classButton"  id="8" (click)="getSpells($event)" >Level 8</button>
+      <button flex class="classButton"  id="9" (click)="getSpells($event)" >Level 9</button>
+      
+      </div>
 
     
-    <img  src = {{imagePath}} fxFlex="25%" (click)="getSpells()" >
     </div>
 	
-		<div class="secondRow" fxFlex = "20%" fxFlex.xs ="100px">
+		<div fxFlex class="secondRow">
 
       <table class="table table-hover">
         <thead>
@@ -48,13 +40,13 @@
 
     </div>
 
-      	<div class="thirdRow" fxFlex = "60%">
-            <h3> Descriptor pane here </h3>
+      	<div  fxFlex class="thirdRow" >
+            <h3 > Description </h3>
             <h3> {{selectedSpell}} </h3>
       	</div>
 
 	</div>
 
 
-
+	 </div>
 

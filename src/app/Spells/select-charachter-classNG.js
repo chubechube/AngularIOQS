@@ -43,8 +43,9 @@ var SelectCharactherClassNG = (function () {
     };
     SelectCharactherClassNG.prototype.callSpell = function ($event) {
     };
-    SelectCharactherClassNG.prototype.getSpells = function () {
+    SelectCharactherClassNG.prototype.getSpells = function (event) {
         var _this = this;
+        console.log(event.target.id);
         this.spellsService.getSpellSub()
             .subscribe(function (spells) { return _this.spells = spells; }, function (error) { return _this.errorMessage = error; });
     };

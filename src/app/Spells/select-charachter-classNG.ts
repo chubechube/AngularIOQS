@@ -60,7 +60,8 @@ export class SelectCharactherClassNG  {
     
   }
 
-  getSpells() {
+  getSpells(event :Event) {
+    console.log(event.target.id); 
     this.spellsService.getSpellSub()
                      .subscribe(
                        spells => this.spells = spells,
