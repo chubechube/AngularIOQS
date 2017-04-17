@@ -18,7 +18,7 @@ var SpellsService = (function () {
         this.http = http;
         this.spellsUrl = 'api/spell'; // URL to web api
         this.headers = new http_1.Headers({ 'Content-Type': 'application/json' });
-        this.baseUrl = 'http://192.168.1.8:32769';
+        this.baseUrl = 'http://192.168.1.87:3030';
     }
     SpellsService.prototype.getSpellSub = function () {
         var url = this.baseUrl + "/spells/cleric";
@@ -44,18 +44,6 @@ var SpellsService = (function () {
         console.error(errMsg);
         return Rx_1.Observable.throw(errMsg);
     };
-    SpellsService.prototype.getSpell = function (chClass) {
-        var url = this.baseUrl + "/spells/" + chClass;
-        return this.http.get(url)
-            .toPromise()
-            .then(function (response) { return response.json().data; })
-            .catch(this.handleError);
-    };
-    /*private handleError(error: any): Promise<any> {
-        console.error('An error occurred', error); // for demo purposes only
-        return Promise.reject(error.message || error);
-      }
-    */
     SpellsService.prototype.getHeaders = function () {
         var headers = new http_1.Headers();
         headers.append('Accept', 'application/json');
@@ -78,6 +66,7 @@ function toSpell(r) {
         id: r.id,
         name: r.name,
         level: r.cleric,
+        description: r.description
     });
     return spell;
 }

@@ -34,7 +34,6 @@ import { SelectCharactherClassNG } from './Spells/select-charachter-classNG';
     HttpModule,
     InMemoryWebApiModule.forRoot(InMemoryDataService, {passThruUnknownUrl: true}),
     FlexLayoutModule,
-    //BsDropdownModule.forRoot(),
     NglModule.forRoot(),
     AppRoutingModule
   ],

@@ -14,6 +14,7 @@ var SelectCharactherClassNG = (function () {
     function SelectCharactherClassNG(spellsService) {
         this.spellsService = spellsService;
         this.mode = 'Observable';
+        this.imagePath = "/assets/button_cleric.gif";
         this.counter = 0;
         this.buttonToggle = 0;
         this.buttonOpen = 0;
@@ -23,6 +24,9 @@ var SelectCharactherClassNG = (function () {
             { value: 'wiz', name: 'Wizard' },
             { value: 'sor', name: 'Sorcer' },
         ];
+        this.setClickedRow = function (index) {
+            this.selectedRow = index;
+        };
     }
     SelectCharactherClassNG.prototype.onToggle = function ($event) {
         $event.stopPropagation();

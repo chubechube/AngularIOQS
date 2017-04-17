@@ -11,9 +11,19 @@ export class SelectCharactherClassNG  {
     errorMessage: string;
     spells: Spell[];
     mode = 'Observable';
-  constructor(
-    private spellsService: SpellsService) { }
+    selectedRow : Number;
+    setClickedRow : Function;
+    selectedSpell : String;
+    imagePath = "/assets/button_cleric.gif";
 
+  constructor(
+    private spellsService: SpellsService) { 
+
+      this.setClickedRow = function(index : Number){
+            this.selectedRow = index;
+        }
+    }
+   
   selected: string;
   open: boolean;
   counter = 0;
@@ -56,6 +66,10 @@ export class SelectCharactherClassNG  {
                        spells => this.spells = spells,
                        error =>  this.errorMessage = <any>error);
   }
+
+  
+
+  
 
 }
 

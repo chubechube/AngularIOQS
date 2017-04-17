@@ -12,7 +12,7 @@ import { Spell } from './spell';
 export class SpellsService {
     private spellsUrl = 'api/spell';  // URL to web api
     private headers = new Headers({'Content-Type': 'application/json'});
-    private baseUrl: string = 'http://192.168.1.8:32769';
+    private baseUrl: string = 'http://192.168.1.87:3030';
 
    constructor(private http: Http) { }
 
@@ -61,6 +61,7 @@ function toSpell(r:any): Spell{
     id            : r.id,
     name          : r.name,
     level         : r.cleric,
+    description   : r.description
     
   });
   

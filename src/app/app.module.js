@@ -41,7 +41,6 @@ var AppModule = (function () {
                 http_1.HttpModule,
                 angular_in_memory_web_api_1.InMemoryWebApiModule.forRoot(in_memory_data_service_1.InMemoryDataService, { passThruUnknownUrl: true }),
                 flex_layout_1.FlexLayoutModule,
-                //BsDropdownModule.forRoot(),
                 ng_lightning_1.NglModule.forRoot(),
                 app_routing_module_1.AppRoutingModule
             ],
