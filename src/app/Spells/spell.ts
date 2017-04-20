@@ -3,4 +3,5 @@ export class Spell {
   name          :     String;
   level         :     Number;
   description   :     String;
+  full_text     :     String;
 }

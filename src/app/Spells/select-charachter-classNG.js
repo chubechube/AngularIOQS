@@ -14,39 +14,19 @@ var SelectCharactherClassNG = (function () {
     function SelectCharactherClassNG(spellsService) {
         this.spellsService = spellsService;
         this.mode = 'Observable';
-        this.imagePath = "/assets/button_cleric.gif";
         this.counter = 0;
         this.buttonToggle = 0;
         this.buttonOpen = 0;
         this.apiSpells = " Vuoto ";
-        this.items = [
-            { value: 'cleric', name: 'Cleric' },
-            { value: 'wiz', name: 'Wizard' },
-            { value: 'sor', name: 'Sorcer' },
-        ];
         this.setClickedRow = function (index) {
             this.selectedRow = index;
         };
     }
-    SelectCharactherClassNG.prototype.onToggle = function ($event) {
-        $event.stopPropagation();
-        this.open = true;
-    };
-    SelectCharactherClassNG.prototype.onVoted = function ($event) {
-        this.counter++;
-    };
-    SelectCharactherClassNG.prototype.onClickOpen = function ($event) {
-        this.buttonOpen++;
-    };
-    SelectCharactherClassNG.prototype.onClickToggle = function ($event) {
-        this.buttonToggle++;
-    };
-    SelectCharactherClassNG.prototype.callSpell = function ($event) {
-    };
     SelectCharactherClassNG.prototype.getSpells = function (event) {
         var _this = this;
-        console.log(event.target.id);
-        this.spellsService.getSpellSub()
+        console.log(event);
+        console.log(event.target.attributes.id.value);
+        this.spellsService.getSpellSub("cleric", event.target.attributes.id.value)
             .subscribe(function (spells) { return _this.spells = spells; }, function (error) { return _this.errorMessage = error; });
     };
     SelectCharactherClassNG = __decorate([

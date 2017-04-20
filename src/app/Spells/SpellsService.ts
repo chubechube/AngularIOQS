@@ -12,20 +12,22 @@ import { Spell } from './spell';
 export class SpellsService {
     private spellsUrl = 'api/spell';  // URL to web api
     private headers = new Headers({'Content-Type': 'application/json'});
-    private baseUrl: string = 'http://192.168.1.87:3030';
+    private baseUrl: string = 'http://192.168.1.8:3030';
 
    constructor(private http: Http) { }
 
-  getSpellSub(): Observable<Spell[]> {
-    const url = `${this.baseUrl}/spells/cleric`;
+  getSpellSub(userClass: String,spellLevel: String): Observable<Spell[]> {
+    const url = `${this.baseUrl}/spells?class=${userClass}&level=${spellLevel}`;
     return this.http.get(url)
                     .map(res => res.json())
                     .catch(this.handleError);
   }
+
   private extractData(res: Response) {
     let body = res.json();
     return body.data || { };
   }
+  
   private handleError (error: Response | any) {
     // In a real world app, you might use a remote logging infrastructure
     let errMsg: string;
@@ -61,7 +63,8 @@ function toSpell(r:any): Spell{
     id            : r.id,
     name          : r.name,
     level         : r.cleric,
-    description   : r.description
+    description   : r.description,
+    full_text      : r.full_text
     
   });
   

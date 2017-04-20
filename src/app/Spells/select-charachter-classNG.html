@@ -3,7 +3,7 @@
 		<div fxFlex  flex class="firstRow">
 
       <div fxLayout="column" class="buttonContainer">
-      <button flex class="classButton"  id="1" (click)="getSpells($event)" >Level 1</button>
+      <button flex class="classButton"  [id]="1" (click)="getSpells($event)" >Level 1</button>
       <button flex class="classButton"  id="2" (click)="getSpells($event)" >Level 2</button>
       <button flex class="classButton"  id="3" (click)="getSpells($event)" >Level 3</button>
       <button flex class="classButton"  id="4" (click)="getSpells($event)" >Level 4</button>
@@ -29,7 +29,7 @@
     </thead>
    
         <tbody>
-        <tr *ngFor="let spell of spells; let i = index" (click)="setClickedRow(i); selectedSpell = spell.description;" [class.active]="i == selectedRow">
+        <tr *ngFor="let spell of spells; let i = index" (click)="setClickedRow(i); selectedSpell = spell.full_text;" [class.active]="i == selectedRow">
          
         <td>{{spell.name}} </td>
           </tr>
@@ -42,7 +42,7 @@
 
       	<div  fxFlex class="thirdRow" >
             <h3 > Description </h3>
-            <h3> {{selectedSpell}} </h3>
+            <div [innerHTML]="selectedSpell"></div>
       	</div>
 
 	</div>

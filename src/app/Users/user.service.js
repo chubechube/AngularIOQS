@@ -16,7 +16,7 @@ var UserService = (function () {
         this.http = http;
         this.usersUrl = 'api/users'; // URL to web api
         this.headers = new http_1.Headers({ 'Content-Type': 'application/json' });
-        this.baseUrl = 'http://127.0.0.1:3030';
+        this.baseUrl = 'http://192.168.1.8:3030';
     }
     UserService.prototype.getAll = function () {
         var user$ = this.http

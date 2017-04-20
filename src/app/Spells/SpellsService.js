@@ -18,10 +18,10 @@ var SpellsService = (function () {
         this.http = http;
         this.spellsUrl = 'api/spell'; // URL to web api
         this.headers = new http_1.Headers({ 'Content-Type': 'application/json' });
-        this.baseUrl = 'http://192.168.1.87:3030';
+        this.baseUrl = 'http://192.168.1.8:3030';
     }
-    SpellsService.prototype.getSpellSub = function () {
-        var url = this.baseUrl + "/spells/cleric";
+    SpellsService.prototype.getSpellSub = function (userClass, spellLevel) {
+        var url = this.baseUrl + "/spells?class=" + userClass + "&level=" + spellLevel;
         return this.http.get(url)
             .map(function (res) { return res.json(); })
             .catch(this.handleError);
@@ -66,7 +66,8 @@ function toSpell(r) {
         id: r.id,
         name: r.name,
         level: r.cleric,
-        description: r.description
+        description: r.description,
+        full_text: r.full_text
     });
     return spell;
 }

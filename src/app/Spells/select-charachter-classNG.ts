@@ -14,7 +14,7 @@ export class SelectCharactherClassNG  {
     selectedRow : Number;
     setClickedRow : Function;
     selectedSpell : String;
-    imagePath = "/assets/button_cleric.gif";
+  
 
   constructor(
     private spellsService: SpellsService) { 
@@ -31,42 +31,16 @@ export class SelectCharactherClassNG  {
   buttonOpen = 0;
   apiSpells =" Vuoto ";
 
-  items = [
-    { value: 'cleric' , name: 'Cleric'},
-    { value: 'wiz',     name: 'Wizard'},
-    { value: 'sor' ,     name: 'Sorcer'},
-  ];
-
-  onToggle($event: Event) {
-    $event.stopPropagation();
-    this.open = true;
-  }
-
-  onVoted($event: Event) {
-    this.counter++;
-  }
-
-  onClickOpen($event: Event) {
-    this.buttonOpen++;
-  }
-
-  onClickToggle($event: Event) {
-    this.buttonToggle++;
-    
-    
-  }
-
-  callSpell($event: Event){
-    
-  }
-
-  getSpells(event :Event) {
-    console.log(event.target.id); 
-    this.spellsService.getSpellSub()
+  
+  getSpells(event : any) {
+    console.log(event); 
+    console.log(event.target.attributes.id.value); 
+    this.spellsService.getSpellSub("cleric",event.target.attributes.id.value)
                      .subscribe(
                        spells => this.spells = spells,
                        error =>  this.errorMessage = <any>error);
-  }
+                       
+}
 
   
 
