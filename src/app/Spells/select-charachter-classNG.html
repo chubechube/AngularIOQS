@@ -1,9 +1,39 @@
 	 <div class="containerX">
- <div fxLayout="row" fxLayout.xs="row" fxLayout.sm="row" fxFlex class="coloredContainerX box" >
+     <div class="Outer" fxLayout.xs ="column" fxLayout.sm="column">
+       
+       <!--
+          <span nglDropdown [(open)]="open">
+            <button class="slds-button slds-button--neutral" nglDropdownTrigger>
+              <span class="slds-truncate">{{getSelectedClass()}}</span>
+            </button>
+            <div class="slds-dropdown slds-dropdown--left">
+              <ul class="dropdown__list" role="menu">
+                <li class="slds-dropdown__item" *ngFor="let class of classes;">
+                  <a role="menuitem" nglDropdownItem (click)="setSelectedClass(class); open = false;">
+                    <p class="slds-truncate">{{class.name}}</p>    
+                    </a>
+                  </li>
+                </ul>
+              </div>
+            </span>-->
+
+             
+      
+
+       
+ <div fxLayout="row" fxLayout.xs="row" fxLayout.sm="row" fxFlex class="coloredContainerXbox" >
 		<div fxFlex  flex class="firstRow">
 
       <div fxLayout="column" class="buttonContainer">
-      <button flex class="classButton"  [id]="1" (click)="getSpells($event)" >Level 1</button>
+      
+      
+      <select [(ngModel)]="selectedClass">
+                <option *ngFor="let class of classes" [ngValue]="class" >
+                  {{class.name}}
+                </option>
+      </select>
+
+      <button flex class="classButton"  id="1" (click)="getSpells($event)" >Level 1</button>
       <button flex class="classButton"  id="2" (click)="getSpells($event)" >Level 2</button>
       <button flex class="classButton"  id="3" (click)="getSpells($event)" >Level 3</button>
       <button flex class="classButton"  id="4" (click)="getSpells($event)" >Level 4</button>
@@ -23,7 +53,7 @@
       <table class="table table-hover">
         <thead>
         <tr>
-            <th>Spell Name</th>
+            <th>Spell Name {{selectedClass.name}} </th>
            
         </tr>
     </thead>
@@ -46,7 +76,7 @@
       	</div>
 
 	</div>
-
+     </div>
 
 	 </div>
 

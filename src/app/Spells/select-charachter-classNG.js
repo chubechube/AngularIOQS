@@ -13,20 +13,54 @@ var SpellsService_1 = require('./SpellsService');
 var SelectCharactherClassNG = (function () {
     function SelectCharactherClassNG(spellsService) {
         this.spellsService = spellsService;
+        this.status = { isopen: false };
         this.mode = 'Observable';
-        this.counter = 0;
-        this.buttonToggle = 0;
-        this.buttonOpen = 0;
-        this.apiSpells = " Vuoto ";
+        this.selectedClass = { name: "Select a Class", value: "Select a Class" };
+        this.classes = [
+            { value: 'cleric', name: 'Cleric' },
+            { value: 'wiz', name: 'Wizard' },
+            { value: 'sor', name: 'Sorcer' },
+            { value: 'shaman', name: 'Shaman' },
+            { value: 'oracle', name: 'Oracle' },
+            { value: 'druid', name: 'Druid' },
+            { value: 'ranger', name: 'Ranger' },
+            { value: 'magus', name: 'Magus' },
+            { value: 'antipaladin', name: 'Antipaladin' },
+            { value: 'inquisitor', name: 'Inquisitor' },
+            { value: 'summoner', name: 'Summonrer' },
+            { value: 'paladin', name: 'Paladin' },
+            { value: 'alchemist', name: 'Alchemist' },
+            { value: 'bloodrager', name: 'Bloodrager' },
+            { value: 'psychic', name: 'Psychic' },
+            { value: 'medium', name: 'Medium' },
+            { value: 'mesmerist', name: 'Mesmerist' },
+            { value: 'occultist', name: 'Occultist' },
+            { value: 'spiritualist', name: 'Spiritualist' },
+            { value: 'skald', name: 'Skald' },
+            { value: 'investigator', name: 'Investigartor' },
+            { value: 'hunter', name: 'Hunter' },
+            { value: 'bard', name: 'Bard' }
+        ];
         this.setClickedRow = function (index) {
             this.selectedRow = index;
         };
+        this.setSelectedClass = function (classSeleceted) {
+            this.selectedClass = classSeleceted;
+            console.log("CLASSE " + this.selectedClass);
+        };
+        this.getSelectedClass = function () {
+            return this.selectedClass.name;
+        };
     }
+    SelectCharactherClassNG.prototype.dropdownMenu = function ($event) {
+        $event.preventDefault();
+        $event.stopPropagation();
+        this.status.isopen = !this.status.isopen;
+    };
     SelectCharactherClassNG.prototype.getSpells = function (event) {
         var _this = this;
-        console.log(event);
-        console.log(event.target.attributes.id.value);
-        this.spellsService.getSpellSub("cleric", event.target.attributes.id.value)
+        console.log("QUERY " + this.selectedClass.value + " " + event.target.attributes.id.value);
+        this.spellsService.getSpellSub(this.selectedClass.value, event.target.attributes.id.value)
             .subscribe(function (spells) { return _this.spells = spells; }, function (error) { return _this.errorMessage = error; });
     };
     SelectCharactherClassNG = __decorate([
