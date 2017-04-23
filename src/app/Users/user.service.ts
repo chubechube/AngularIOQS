@@ -18,7 +18,7 @@ export class UserService {
    getAll(): Observable<User[]>{
     
     let user$ = this.http
-      .get(`${this.baseUrl}/users`, {headers: this.getHeaders()})
+      .get(`${this.baseUrl}/pahtfinderUsers`, {headers: this.getHeaders()})
       .map(mapUser);
       return user$;
   }
@@ -52,6 +52,14 @@ export class UserService {
         .catch(this.handleError);
     }
 
+      
+    getUserID(id: String): Promise<User> {
+      const url = `${this.usersUrl}/${id}`;
+      return this.http.get(url)
+        .toPromise()
+        .then(response => response.json().data as User)
+        .catch(this.handleError);
+    }
 
     update(user: User): Promise<User> {
       const url = `${this.usersUrl}/${user.id}`;
@@ -97,9 +105,13 @@ function toUser(r:any): User{
 
   let user = <User>({
     id            : r.id,
+    _id           : r._id,
     userName      : r.userName,
     userPassword  : r.userPassword,
-    userEmail     : r.userEmail
+    userEmail     : r.userEmail,
+    playerName    : r.playerName,
+    playerLevel   : r.playerLevel,
+    playerClass   : r.playerClass
     
   });
   

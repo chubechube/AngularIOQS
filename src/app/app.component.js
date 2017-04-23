@@ -24,7 +24,7 @@ var DashboardComponent = (function () {
 exports.DashboardComponent = DashboardComponent;
 var AppComponent = (function () {
     function AppComponent() {
-        this.title = 'Tour of Heroes';
+        this.title = 'Pathfinder Heroes';
     }
     AppComponent = __decorate([
         core_1.Component({

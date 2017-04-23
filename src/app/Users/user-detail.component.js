@@ -20,9 +20,12 @@ var UserDetailComponent = (function () {
         this.location = location;
     }
     UserDetailComponent.prototype.ngOnInit = function () {
+        /*this.route.params
+          .switchMap((params: Params) => this.userService.getUser(+params['_id']))
+          .subscribe(user => this.user = user);*/
         var _this = this;
         this.route.params
-            .switchMap(function (params) { return _this.userService.getUser(+params['id']); })
+            .switchMap(function (params) { return _this.userService.getUserID(params['_id']); })
             .subscribe(function (user) { return _this.user = user; });
     };
     UserDetailComponent.prototype.goBack = function () {
@@ -36,8 +39,8 @@ var UserDetailComponent = (function () {
     UserDetailComponent = __decorate([
         core_1.Component({
             selector: 'user-detail',
-            templateUrl: 'app/user/user-detail.component.html',
-            styleUrls: ['app/user/user-detail.component.css']
+            templateUrl: 'app/Users/user-detail.component.html',
+            styleUrls: ['app/Users/user-detail.component.css']
         }), 
         __metadata('design:paramtypes', [user_service_1.UserService, router_1.ActivatedRoute, common_1.Location])
     ], UserDetailComponent);

@@ -9,8 +9,8 @@ import { UserService }  from './user.service';
 
 @Component({
   selector: 'user-detail',
-  templateUrl: 'app/user/user-detail.component.html',
-  styleUrls: [ 'app/user/user-detail.component.css' ]
+  templateUrl: 'app/Users/user-detail.component.html',
+  styleUrls: [ 'app/Users/user-detail.component.css' ]
 })
 
 export class UserDetailComponent implements OnInit {
@@ -24,8 +24,12 @@ export class UserDetailComponent implements OnInit {
 
 
   ngOnInit(): void {
-    this.route.params
-      .switchMap((params: Params) => this.userService.getUser(+params['id']))
+    /*this.route.params
+      .switchMap((params: Params) => this.userService.getUser(+params['_id']))
+      .subscribe(user => this.user = user);*/
+
+      this.route.params
+      .switchMap((params: Params) => this.userService.getUserID(params['_id']))
       .subscribe(user => this.user = user);
   }
 

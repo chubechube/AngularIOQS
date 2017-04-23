@@ -20,7 +20,7 @@ var UserService = (function () {
     }
     UserService.prototype.getAll = function () {
         var user$ = this.http
-            .get(this.baseUrl + "/users", { headers: this.getHeaders() })
+            .get(this.baseUrl + "/pahtfinderUsers", { headers: this.getHeaders() })
             .map(mapUser);
         return user$;
     };
@@ -36,6 +36,13 @@ var UserService = (function () {
             .catch(this.handleError);
     };
     UserService.prototype.getUser = function (id) {
+        var url = this.usersUrl + "/" + id;
+        return this.http.get(url)
+            .toPromise()
+            .then(function (response) { return response.json().data; })
+            .catch(this.handleError);
+    };
+    UserService.prototype.getUserID = function (id) {
         var url = this.usersUrl + "/" + id;
         return this.http.get(url)
             .toPromise()
@@ -83,9 +90,13 @@ function mapUser(response) {
 function toUser(r) {
     var user = ({
         id: r.id,
+        _id: r._id,
         userName: r.userName,
         userPassword: r.userPassword,
-        userEmail: r.userEmail
+        userEmail: r.userEmail,
+        playerName: r.playerName,
+        playerLevel: r.playerLevel,
+        playerClass: r.playerClass
     });
     return user;
 }

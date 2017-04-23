@@ -20,17 +20,6 @@ var UsersComponent = (function () {
         var _this = this;
         this.userService.getUsers().then(function (users) { return _this.users = users; });
     };
-    UsersComponent.prototype.delete = function (user) {
-        var _this = this;
-        this.userService
-            .delete(user.id)
-            .then(function () {
-            _this.users = _this.users.filter(function (h) { return h !== user; });
-            if (_this.selectedUser === user) {
-                _this.selectedUser = null;
-            }
-        });
-    };
     UsersComponent.prototype.add = function (userName, userPassword, userEmail) {
         var _this = this;
         userName = userName.trim();
@@ -57,8 +46,8 @@ var UsersComponent = (function () {
     UsersComponent = __decorate([
         core_1.Component({
             selector: 'my-users',
-            templateUrl: 'app/users/users.component.html',
-            styleUrls: ['app/users/users.component.css']
+            templateUrl: 'app/Users/users.component.html',
+            styleUrls: ['app/Users/users.component.css']
         }), 
         __metadata('design:paramtypes', [router_1.Router, user_service_1.UserService])
     ], UsersComponent);

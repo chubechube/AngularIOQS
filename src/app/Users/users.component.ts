@@ -6,8 +6,8 @@ import { UserService } from './user.service';
 
 @Component({
   selector: 'my-users',
-  templateUrl: 'app/users/users.component.html',
-  styleUrls: [ 'app/users/users.component.css' ]
+  templateUrl: 'app/Users/users.component.html',
+  styleUrls: [ 'app/Users/users.component.css' ]
 })
 export class UsersComponent implements OnInit {
   users: User[];
@@ -21,14 +21,7 @@ export class UsersComponent implements OnInit {
     this.userService.getUsers().then(users => this.users = users);
   }
 
-  delete(user: User): void {
-    this.userService
-        .delete(user.id)
-        .then(() => {
-          this.users = this.users.filter(h => h !== user);
-          if (this.selectedUser === user) { this.selectedUser = null; }
-        });
-  }
+  
 
   add(userName: string,userPassword: string,userEmail: string): void {
       userName      = userName.trim();

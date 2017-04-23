@@ -21,5 +21,5 @@ export class DashboardComponent { }
 
 })
 export class AppComponent {
-  title = 'Tour of Heroes';
+  title = 'Pathfinder Heroes';
 }

@@ -25,6 +25,7 @@ import { UserService}           from './Users/user.service';
 import { UserSearchComponent }  from './Users/user-search.component';
 import { SpellsService  }       from './Spells/SpellsService';
 import { SelectCharactherClassNG } from './Spells/select-charachter-classNG';
+import { UserDetailComponent }  from './Users/user-detail.component'
 
 
 @NgModule({
@@ -45,7 +46,8 @@ import { SelectCharactherClassNG } from './Spells/select-charachter-classNG';
     HeroSearchComponent,
     UsersComponent,
     UserSearchComponent,
-    SelectCharactherClassNG
+    SelectCharactherClassNG,
+    UserDetailComponent
   ],
   providers: [ HeroService ,UserService,SpellsService],
   bootstrap: [ AppComponent ]

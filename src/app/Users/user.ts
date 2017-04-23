@@ -1,6 +1,10 @@
 export class User {
-  id:       number;
+  id            :     number;
+  _id           :     string;
   userName      :     string;
   userPassword  :     string;
   userEmail     :     string;
+  playerName    :     string;
+  playerLevel   :     number;
+  playerClass   :     string;
 }

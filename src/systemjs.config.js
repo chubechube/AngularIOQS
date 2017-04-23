@@ -23,9 +23,7 @@
       '@angular/router': 'npm:@angular/router/bundles/router.umd.js',
       '@angular/forms': 'npm:@angular/forms/bundles/forms.umd.js',
      '@angular/flex-layout' : 'npm:@angular/flex-layout/bundles/flex-layout.umd.js',
-      //ng2-bootstrap
-      //'ng2-bootstrap': 'npm:ng2-bootstrap/bundles/ng2-bootstrap.umd.js',
-      //ng-lighting
+      
       'ng-lightning/ng-lightning': 'https://unpkg.com/ng-lightning@1.3.0/bundles/ng-lightning.umd.js',
       'tether': 'https://cdnjs.cloudflare.com/ajax/libs/tether/1.3.1/js/tether.min.js',
       // other libraries
