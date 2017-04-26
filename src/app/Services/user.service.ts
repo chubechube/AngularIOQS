@@ -4,7 +4,7 @@ import { Observable }             from 'rxjs/Rx';
 
 import 'rxjs/add/operator/toPromise';
 
-import { User } from './user';
+import { User } from '../Users/user';
 
 
 @Injectable()
@@ -26,7 +26,6 @@ export class UserService {
  
 
 
-
   private getHeaders(){
     let headers = new Headers();
     headers.append('Accept', 'application/json');
@@ -44,21 +43,14 @@ export class UserService {
                 .catch(this.handleError);
     }
   
-    getUser(id: number): Promise<User> {
-      const url = `${this.usersUrl}/${id}`;
-      return this.http.get(url)
-        .toPromise()
-        .then(response => response.json().data as User)
-        .catch(this.handleError);
-    }
-
+    
       
-    getUserID(id: String): Promise<User> {
-      const url = `${this.usersUrl}/${id}`;
-      return this.http.get(url)
-        .toPromise()
-        .then(response => response.json().data as User)
-        .catch(this.handleError);
+    getUserID(id: String): Observable<User> {
+      const url = `${this.baseUrl}/pahtfinderUsers?user_id=${id}`;
+      let user$ = this.http
+      .get(`${this.baseUrl}/pahtfinderUsers?user_id=${id}`, {headers: this.getHeaders()})
+      .map(mapSingleUser);
+      return user$;
     }
 
     update(user: User): Promise<User> {
@@ -94,6 +86,11 @@ export class UserService {
 }
 
 
+function mapSingleUser(response:Response): User{
+  var user = response.json().map(toUser);
+  console.log(user);
+  return user[0];
+}
 
 function mapUser(response:Response): User[]{
    // The response of the API has a results
@@ -104,14 +101,14 @@ function mapUser(response:Response): User[]{
 function toUser(r:any): User{
 
   let user = <User>({
-    id            : r.id,
-    _id           : r._id,
-    userName      : r.userName,
-    userPassword  : r.userPassword,
-    userEmail     : r.userEmail,
-    playerName    : r.playerName,
-    playerLevel   : r.playerLevel,
-    playerClass   : r.playerClass
+    _id                 : r._id,
+    userName            : r.userName,
+    userPassword        : r.userPassword,
+    userEmail           : r.userEmail,
+    playerName          : r.playerName,
+    playerLevel         : r.playerLevel,
+    playerClass         : r.playerClass,
+    userMemorizedSpells : r.userMemorizedSpells
     
   });
   

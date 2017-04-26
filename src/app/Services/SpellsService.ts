@@ -5,7 +5,7 @@ import { Observable }             from 'rxjs/Rx';
 import 'rxjs/add/operator/catch';
 import 'rxjs/add/operator/toPromise';
 
-import { Spell } from './spell';
+import { Spell } from '../Spells/spell';
 
 
 @Injectable()

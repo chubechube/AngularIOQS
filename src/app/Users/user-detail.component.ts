@@ -3,7 +3,7 @@ import { Component, OnInit }      from '@angular/core';
 import { ActivatedRoute, Params } from '@angular/router';
 import { Location }               from '@angular/common';
 import { User }         from './user';
-import { UserService }  from './user.service';
+import { UserService }  from '../Services/user.service';
 
 
 
@@ -24,13 +24,15 @@ export class UserDetailComponent implements OnInit {
 
 
   ngOnInit(): void {
-    /*this.route.params
-      .switchMap((params: Params) => this.userService.getUser(+params['_id']))
-      .subscribe(user => this.user = user);*/
+   
+      
+      /*this.route.params
+      .switchMap((params: Params) => this.userService.getUserID(params['user_id']))
+      .subscribe(user => this.user = user ; console.log("USER "+this.user));*/
 
       this.route.params
-      .switchMap((params: Params) => this.userService.getUserID(params['_id']))
-      .subscribe(user => this.user = user);
+      .switchMap((params: Params) => this.userService.getUserID(params['user_id']))
+      .subscribe(user =>  this.user = user);
   }
 
   goBack(): void {

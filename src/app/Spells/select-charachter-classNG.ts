@@ -1,5 +1,5 @@
 import { Component ,  EventEmitter, Input, Output} from '@angular/core';
-import { SpellsService } from './SpellsService';
+import { SpellsService } from '../Services/SpellsService';
 import { Spell         } from './Spell';
 
 

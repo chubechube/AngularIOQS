@@ -12,7 +12,7 @@ require('rxjs/add/operator/switchMap');
 var core_1 = require('@angular/core');
 var router_1 = require('@angular/router');
 var common_1 = require('@angular/common');
-var user_service_1 = require('./user.service');
+var user_service_1 = require('../Services/user.service');
 var UserDetailComponent = (function () {
     function UserDetailComponent(userService, route, location) {
         this.userService = userService;
@@ -21,11 +21,11 @@ var UserDetailComponent = (function () {
     }
     UserDetailComponent.prototype.ngOnInit = function () {
         /*this.route.params
-          .switchMap((params: Params) => this.userService.getUser(+params['_id']))
-          .subscribe(user => this.user = user);*/
+        .switchMap((params: Params) => this.userService.getUserID(params['user_id']))
+        .subscribe(user => this.user = user ; console.log("USER "+this.user));*/
         var _this = this;
         this.route.params
-            .switchMap(function (params) { return _this.userService.getUserID(params['_id']); })
+            .switchMap(function (params) { return _this.userService.getUserID(params['user_id']); })
             .subscribe(function (user) { return _this.user = user; });
     };
     UserDetailComponent.prototype.goBack = function () {

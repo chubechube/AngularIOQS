@@ -10,20 +10,12 @@ import {NglModule} from 'ng-lightning/ng-lightning';
 import { AppRoutingModule } from './app-routing.module';
 
 // Imports for loading & configuring the in-memory web api
-
-import { InMemoryWebApiModule } from 'angular-in-memory-web-api';
-import { InMemoryDataService }  from './Services/in-memory-data.service';
-
 import { AppComponent }         from './app.component';
 import { DashboardComponent }   from './dashboard.component';
-import { HeroesComponent }      from './Heroes/heroes.component';
-import { HeroDetailComponent }  from './Heroes/hero-detail.component';
-import { HeroService }          from './Heroes/hero.service';
-import { HeroSearchComponent }  from './Heroes/hero-search.component';
 import { UsersComponent }       from './Users/users.component';
-import { UserService}           from './Users/user.service';
+import { UserService}           from './Services/user.service';
 import { UserSearchComponent }  from './Users/user-search.component';
-import { SpellsService  }       from './Spells/SpellsService';
+import { SpellsService  }       from './Services/SpellsService';
 import { SelectCharactherClassNG } from './Spells/select-charachter-classNG';
 import { UserDetailComponent }  from './Users/user-detail.component'
 
@@ -33,7 +25,6 @@ import { UserDetailComponent }  from './Users/user-detail.component'
     BrowserModule,
     FormsModule,
     HttpModule,
-    InMemoryWebApiModule.forRoot(InMemoryDataService, {passThruUnknownUrl: true}),
     FlexLayoutModule,
     NglModule.forRoot(),
     AppRoutingModule
@@ -41,15 +32,12 @@ import { UserDetailComponent }  from './Users/user-detail.component'
   declarations: [
     AppComponent,
     DashboardComponent,
-    HeroDetailComponent,
-    HeroesComponent,
-    HeroSearchComponent,
     UsersComponent,
     UserSearchComponent,
     SelectCharactherClassNG,
     UserDetailComponent
   ],
-  providers: [ HeroService ,UserService,SpellsService],
+  providers: [ UserService,SpellsService],
   bootstrap: [ AppComponent ]
 })
 export class AppModule { }

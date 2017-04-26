@@ -9,17 +9,17 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 var core_1 = require('@angular/core');
-var SelectCharactherClass = (function () {
-    function SelectCharactherClass() {
+var CharachtePanel = (function () {
+    function CharachtePanel() {
     }
-    SelectCharactherClass = __decorate([
+    CharachtePanel = __decorate([
         core_1.Component({
-            selector: 'demo-dropdown-basic',
-            templateUrl: 'app/Spells/select-charachter-class.html'
+            selector: 'CharachterPanel',
+            templateUrl: 'app/CharachterPanel/charachterpanel.html'
         }), 
         __metadata('design:paramtypes', [])
-    ], SelectCharactherClass);
-    return SelectCharactherClass;
+    ], CharachtePanel);
+    return CharachtePanel;
 }());
-exports.SelectCharactherClass = SelectCharactherClass;
-//# sourceMappingURL=select-charachter-class.js.map
+exports.CharachtePanel = CharachtePanel;
+//# sourceMappingURL=CharachterPanel.js.map
