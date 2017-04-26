@@ -2,6 +2,6 @@ import { Component } from '@angular/core';
  
 @Component({
   selector: 'CharachterPanel',
-  templateUrl: 'app/CharachterPanel/charachterpanel.html'
+  templateUrl: 'app/CharactherPanel/charactherPanel.html'
 })
-export class CharachtePanel{}
+export class CharactherPanel{}
