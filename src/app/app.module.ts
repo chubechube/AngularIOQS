@@ -1,9 +1,9 @@
-import { NgModule }      from '@angular/core';
-import { BrowserModule } from '@angular/platform-browser';
-import { HttpModule }    from '@angular/http';
-import {FormsModule }    from '@angular/forms';
+import { NgModule }         from '@angular/core';
+import { BrowserModule }    from '@angular/platform-browser';
+import { HttpModule }       from '@angular/http';
+import {FormsModule }       from '@angular/forms';
 import { FlexLayoutModule } from '@angular/flex-layout';
-import {NglModule} from 'ng-lightning/ng-lightning';
+import { NglModule }        from 'ng-lightning/ng-lightning';
 
 
 import { AppRoutingModule } from './app-routing.module';
@@ -15,9 +15,9 @@ import { UsersComponent }           from './Users/users.component';
 import { UserService}               from './Services/user.service';
 import { UserSearchComponent }      from './Users/user-search.component';
 import { SpellsService  }           from './Services/SpellsService';
-import { SelectCharactherClassNG }  from './Spells/select-charachter-classNG';
+import { SelectSpell}  from './Spells/selectSpell';
 import { UserDetailComponent }      from './Users/user-detail.component'
-import { CharactherPanel }          from './CharactherPanel/CharactherPanel'
+import { CharactherPanel }          from './CharacterPanel/characterPanel'
 
 
 @NgModule({
@@ -34,8 +34,9 @@ import { CharactherPanel }          from './CharactherPanel/CharactherPanel'
     DashboardComponent,
     UsersComponent,
     UserSearchComponent,
-    SelectCharactherClassNG,
-    UserDetailComponent
+    SelectSpell,
+    UserDetailComponent,
+    CharactherPanel
   ],
   providers: [ UserService,SpellsService],
   bootstrap: [ AppComponent ]

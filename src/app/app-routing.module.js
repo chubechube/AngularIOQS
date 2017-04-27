@@ -12,12 +12,14 @@ var core_1 = require('@angular/core');
 var router_1 = require('@angular/router');
 var dashboard_component_1 = require('./dashboard.component');
 var user_detail_component_1 = require('./Users/user-detail.component');
-var select_charachter_classNG_1 = require('./Spells/select-charachter-classNG');
+var selectSpell_1 = require('./Spells/selectSpell');
+var characterPanel_1 = require('./CharacterPanel/characterPanel');
 var routes = [
     { path: '', redirectTo: '/dashboard', pathMatch: 'full' },
     { path: 'dashboard', component: dashboard_component_1.DashboardComponent },
     { path: 'pathfinderUserDetails', component: user_detail_component_1.UserDetailComponent },
-    { path: 'spells', component: select_charachter_classNG_1.SelectCharactherClassNG }
+    { path: 'spells', component: selectSpell_1.SelectSpell },
+    { path: 'characterPanel', component: characterPanel_1.CharactherPanel }
 ];
 var AppRoutingModule = (function () {
     function AppRoutingModule() {

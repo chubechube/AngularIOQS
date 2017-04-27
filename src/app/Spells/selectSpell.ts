@@ -5,10 +5,10 @@ import { Spell         } from './Spell';
 
 @Component({
   selector: 'demo-dropdown-basic',
-  templateUrl: 'app/Spells/select-charachter-classNG.html',
-   styleUrls: [ 'app/Spells/select-charachter-classNG.css' ]
+  templateUrl: 'app/Spells/selectSpell.html',
+   styleUrls: [ 'app/Spells/selectSpell.css' ]
 })
-export class SelectCharactherClassNG  {
+export class SelectSpell  {
     status:{isopen:boolean} = {isopen: false};
  
   

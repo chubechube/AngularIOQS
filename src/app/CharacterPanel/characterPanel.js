@@ -8,40 +8,28 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
-require('rxjs/add/operator/switchMap');
 var core_1 = require('@angular/core');
 var router_1 = require('@angular/router');
-var common_1 = require('@angular/common');
 var user_service_1 = require('../Services/user.service');
-var UserDetailComponent = (function () {
-    function UserDetailComponent(userService, route, location) {
+var CharactherPanel = (function () {
+    function CharactherPanel(userService, route) {
         this.userService = userService;
         this.route = route;
-        this.location = location;
     }
-    UserDetailComponent.prototype.ngOnInit = function () {
+    CharactherPanel.prototype.ngOnInit = function () {
         var _this = this;
         this.route.params
             .switchMap(function (params) { return _this.userService.getUserID(params['user_id']); })
-            .subscribe(function (user) { return _this.user = user; });
+            .subscribe(function (user) { _this.user = user; _this.spellLevel = new Array(user.playerLevel); });
     };
-    UserDetailComponent.prototype.goBack = function () {
-        this.location.back();
-    };
-    UserDetailComponent.prototype.save = function () {
-        var _this = this;
-        this.userService.update(this.user)
-            .then(function () { return _this.goBack(); });
-    };
-    UserDetailComponent = __decorate([
+    CharactherPanel = __decorate([
         core_1.Component({
-            selector: 'user-detail',
-            templateUrl: 'app/Users/user-detail.component.html',
-            styleUrls: ['app/Users/user-detail.component.css']
+            selector: 'CharachterPanel',
+            templateUrl: 'app/CharacterPanel/characterPanel.html'
         }), 
-        __metadata('design:paramtypes', [user_service_1.UserService, router_1.ActivatedRoute, common_1.Location])
-    ], UserDetailComponent);
-    return UserDetailComponent;
+        __metadata('design:paramtypes', [user_service_1.UserService, router_1.ActivatedRoute])
+    ], CharactherPanel);
+    return CharactherPanel;
 }());
-exports.UserDetailComponent = UserDetailComponent;
-//# sourceMappingURL=user-detail.component.js.map
+exports.CharactherPanel = CharactherPanel;
+//# sourceMappingURL=characterPanel.js.map

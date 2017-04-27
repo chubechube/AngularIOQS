@@ -1,19 +1,20 @@
-<md-toolbar color="primary">
-	<span>Flex Layout Example</span>
-</md-toolbar>
+<div *ngIf="user">
+
 
 <div class="container">
 	<div fxLayout="row" fxLayoutAlign="start center" class="content">
-		<div class="blocks" fxFlex = "20%">1</div>
-		<div class="blocks" fxFlex = "60%">2</div>
-		<div class="blocks" fxFlex>3</div>
+		<div class="blocks" fxFlex = "40%">Player Name {{user.playerName}}</div>
+		<div class="blocks" fxFlex = "30%">Player Class {{user.playerClass}}</div>
+		<div class="blocks" fxFlex = "30%">Player Lever {{user.playerLevel}}</div>
 	</div>
 </div>
 <div class="container">
 	<div fxLayout="row" fxLayoutAlign="space-around center" class="content">
-		<div class="blocks">1</div>
-		<div class="blocks">2</div>
-		<div class="blocks">3</div>
+		<a *ngFor="let key of spellLevel" >
+    		<div class="module hero">
+     		 <h4>{{user.userName}}</h4>
+    		</div>
+  		</a>
 	</div>
 </div>
 <div class="container">
@@ -31,4 +32,6 @@
 		<div class="blocks" fxFlex> I'm above on mobile, and to the left on larger devices.   </div>
 		<div class="blocks" fxFlex> I'm below on mobile, and to the right on larger devices.  </div>
 	</div>
+</div>
+
 </div>
